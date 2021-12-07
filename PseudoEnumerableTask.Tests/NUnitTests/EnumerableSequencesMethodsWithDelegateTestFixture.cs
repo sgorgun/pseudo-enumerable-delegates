@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using NUnit.Framework;
 
 #pragma warning disable SA1600
@@ -29,7 +30,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     },
                     new Predicate<string>(x => x.Contains('o')));
                 yield return new TestCaseData(
-                    arg1: new []
+                    new []
                     {
                         "one", "two", "Two", "Three", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                     },
@@ -37,7 +38,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     {
                         "two", "Two", "Three", "three", "ten",
                     },
-                    arg3: new Predicate<string>(x => x.ToUpper().StartsWith('T')));
+                    arg3: new Predicate<string>(x => x.ToUpper(CultureInfo.InvariantCulture).StartsWith('T')));
             }
         }
 

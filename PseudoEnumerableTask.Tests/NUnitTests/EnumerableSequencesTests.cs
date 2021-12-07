@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Comparers;
@@ -170,7 +170,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         255.255,
                         4294967295.012,
                         -451387.2345,
-                        0.2345E-12
+                        0.2345E-12,
                     },
                     new List<string>()
                     {
@@ -179,9 +179,10 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "0100000001101111111010000010100011110101110000101000111101011100",
                         "0100000111101111111111111111111111111111111000000110001001001110",
                         "1100000100011011100011001110110011110000001000001100010010011100",
-                        "0011110101010000100000000110000001011111000011101110100001011011"
+                        "0011110101010000100000000110000001011111000011101110100001011011",
                     });
-                yield return new TestCaseData(new Ieee754FormatTransformer(),
+                yield return new TestCaseData(
+                    new Ieee754FormatTransformer(),
                     new List<double>
                     {
                         double.PositiveInfinity,
@@ -189,7 +190,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         double.NegativeInfinity,
                         -0.0,
                         double.Epsilon,
-                        double.NaN
+                        double.NaN,
                     },
                     new List<string>()
                     {
@@ -198,7 +199,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "1111111111110000000000000000000000000000000000000000000000000000",
                         "1000000000000000000000000000000000000000000000000000000000000000",
                         "0000000000000000000000000000000000000000000000000000000000000001",
-                        "1111111111111000000000000000000000000000000000000000000000000000"
+                        "1111111111111000000000000000000000000000000000000000000000000000",
                     });
             }
         }
@@ -234,7 +235,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         double.NegativeInfinity,
                         -0.0,
                         double.Epsilon,
-                        double.NaN
+                        double.NaN,
                     },
                     new List<string>()
                     {
@@ -345,15 +346,13 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         }
 
         [TestCaseSource(nameof(TransformerTestCases))]
-        public void TransformerTests(ITransformer<double, string> transformer, IEnumerable<double> source,
-            IEnumerable<string> excepted)
+        public void TransformerTests(ITransformer<double, string> transformer, IEnumerable<double> source, IEnumerable<string> excepted)
         {
             CollectionAssert.AreEqual(excepted, source.Transform(transformer));
         }
 
         [TestCaseSource(nameof(TransformerWithDelegateTestCases))]
-        public void TransformerWithDelegateTests(IEnumerable<double> source,
-            IEnumerable<string> excepted)
+        public void TransformerWithDelegateTests(IEnumerable<double> source, IEnumerable<string> excepted)
         {
             Converter<double, string> converter = new Ieee754FormatTransformer().Transform;
             CollectionAssert.AreEqual(excepted, source.Transform(converter));
@@ -381,16 +380,15 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [TestCaseSource(nameof(FilterWithDelegateTestCases))]
         public void FilterByWithDelegateTests(int digit, IEnumerable<int> source, IEnumerable<int> excepted)
         {
-            CollectionAssert.AreEqual(excepted, source.Filter(x => x.ToString().Contains(digit.ToString(CultureInfo.InvariantCulture), StringComparison.InvariantCulture)));
+            CollectionAssert.AreEqual(excepted, source.Filter(x => x.ToString(CultureInfo.InvariantCulture).Contains(digit.ToString(CultureInfo.InvariantCulture), StringComparison.InvariantCulture)));
         }
 
         [TestCaseSource(nameof(TransformerTestCases))]
-        public void Transformer_WithActualElements_Tests(ITransformer<double, string> transformer, List<double> source,
-            List<string> excepted)
+        public void Transformer_WithActualElements_Tests(ITransformer<double, string> transformer, List<double> source, List<string> excepted)
         {
-            source.RemoveAt(2);
+            source?.RemoveAt(2);
             var actual = source.Transform(transformer);
-            excepted.RemoveAt(2);
+            excepted?.RemoveAt(2);
             CollectionAssert.AreEqual(excepted, actual);
         }
     }

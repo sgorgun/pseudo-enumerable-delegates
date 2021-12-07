@@ -63,8 +63,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void SortBy_Source_Is_Null_Throw_ArgumentNullException()
         {
-            IEnumerable<T> enumerable = null;
-            Assert.Throws<ArgumentNullException>(() => enumerable.SortBy(this.comparer), $"Source can not be null.");
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<T>)null).SortBy(this.comparer), $"Source can not be null.");
         }
 
         private static IComparer<T> ComparerCreator(Type type) => type switch
