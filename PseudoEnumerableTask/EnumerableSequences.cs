@@ -18,8 +18,7 @@ namespace PseudoEnumerableTask
         /// <param name="predicate">A <see cref="IPredicate{T}"/> to test each element of a sequence for a condition.</param>
         /// <returns>An sequence of elements from the source sequence that satisfy the condition.</returns>
         /// <exception cref="ArgumentNullException">Thrown when source sequence or predicate is null.</exception>
-        public static IEnumerable<TSource> Filter<TSource>(this IEnumerable<TSource> source,
-            IPredicate<TSource> predicate)
+        public static IEnumerable<TSource> Filter<TSource>(this IEnumerable<TSource> source, IPredicate<TSource> predicate)
         {
             throw new NotImplementedException();
         }
@@ -32,8 +31,7 @@ namespace PseudoEnumerableTask
         /// <param name="predicate">A <see cref="Predicate{T}"/> to test each element of a sequence for a condition.</param>
         /// <returns>An sequence of elements from the source sequence that satisfy the condition.</returns>
         /// <exception cref="ArgumentNullException">Thrown when source sequence or predicate is null.</exception>
-        public static IEnumerable<TSource> Filter<TSource>(this IEnumerable<TSource> source,
-            Predicate<TSource> predicate)
+        public static IEnumerable<TSource> Filter<TSource>(this IEnumerable<TSource> source, Predicate<TSource> predicate)
         {
             throw new NotImplementedException();
         }
@@ -47,8 +45,7 @@ namespace PseudoEnumerableTask
         /// <param name="transformer">A <see cref="ITransformer{TSource,TResult}"/> that defines the rule of transformation.</param>
         /// <returns>A sequence, each element of which is transformed.</returns>
         /// <exception cref="ArgumentNullException">Thrown when sequence or transformer is null.</exception>
-        public static IEnumerable<TResult> Transform<TSource, TResult>(this IEnumerable<TSource> source,
-            ITransformer<TSource, TResult> transformer)
+        public static IEnumerable<TResult> Transform<TSource, TResult>(this IEnumerable<TSource> source, ITransformer<TSource, TResult> transformer)
         {
             throw new NotImplementedException();
         }
@@ -62,8 +59,7 @@ namespace PseudoEnumerableTask
         /// <param name="converter">A <see cref="Converter{TSource,TResult}"/> that defines the rule of transformation.</param>
         /// <returns>A sequence, each element of which is transformed.</returns>
         /// <exception cref="ArgumentNullException">Thrown when sequence or transformer is null.</exception>
-        public static IEnumerable<TResult> Transform<TSource, TResult>(this IEnumerable<TSource> source,
-            Converter<TSource, TResult> converter)
+        public static IEnumerable<TResult> Transform<TSource, TResult>(this IEnumerable<TSource> source, Converter<TSource, TResult> converter)
         {
             throw new NotImplementedException();
         }
@@ -79,8 +75,7 @@ namespace PseudoEnumerableTask
         /// <exception cref="ArgumentNullException">Thrown when comparer is null, and one or more elements
         /// of the sequence do not implement the <see cref="IComparable{T}"/>  interface.
         /// </exception>
-        public static IEnumerable<TSource> SortBy<TSource>(this IEnumerable<TSource> source,
-            IComparer<TSource> comparer)
+        public static IEnumerable<TSource> SortBy<TSource>(this IEnumerable<TSource> source, IComparer<TSource> comparer)
         {
             throw new NotImplementedException();
         }
@@ -96,8 +91,7 @@ namespace PseudoEnumerableTask
         /// <exception cref="ArgumentNullException">Thrown when comparer is null, and one or more elements
         /// of the sequence do not implement the <see cref="IComparable{T}"/>  interface.
         /// </exception>
-        public static IEnumerable<TSource> SortBy<TSource>(this IEnumerable<TSource> source,
-            Comparison<TSource> comparer)
+        public static IEnumerable<TSource> SortBy<TSource>(this IEnumerable<TSource> source, Comparison<TSource> comparer)
         {
             throw new NotImplementedException();
         }

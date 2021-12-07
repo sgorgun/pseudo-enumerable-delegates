@@ -39,7 +39,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(1)]
         public void Reverse_With_Initial_Sequence()
         {
-            CollectionAssert.AreEqual(this.expected, EnumerableSequences.Reverse(source));
+            CollectionAssert.AreEqual(this.expected, EnumerableSequences.Reverse(this.source));
         }
 
         [Test]

@@ -25,6 +25,6 @@ namespace Comparers
         /// Greater than zero
         /// <paramref name="x" /> is greater than <paramref name="y" />.
         /// </returns>
-        public int Compare(string x, string y) => throw new NotImplementedException();
+        public int Compare(string? x, string? y) => throw new NotImplementedException();
     }
 }

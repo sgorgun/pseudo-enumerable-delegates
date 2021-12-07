@@ -34,7 +34,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         7243,
                         10017,
                         int.MinValue,
-                        int.MaxValue
+                        int.MaxValue,
                     },
                     new List<int>
                     {
@@ -45,7 +45,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         7243,
                         10017,
                         int.MinValue,
-                        int.MaxValue
+                        int.MaxValue,
                     });
                 yield return new TestCaseData(
                     new ContainsDigitPredicate { Digit = 0 },
@@ -55,7 +55,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         int.MinValue,
                         int.MinValue,
                         int.MaxValue,
-                        int.MaxValue
+                        int.MaxValue,
                     },
                     new List<int> { });
                 yield return new TestCaseData(
@@ -74,14 +74,14 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         9,
                         0,
                         -150,
-                        287
+                        287,
                     }, new List<int>
                     {
                         -123,
                         123,
                         2202,
                         5402,
-                        287
+                        287,
                     });
             }
         }
@@ -215,7 +215,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         255.255,
                         4294967295.012,
                         -451387.2345,
-                        0.2345E-12
+                        0.2345E-12,
                     },
                     new List<string>()
                     {
@@ -224,7 +224,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "0100000001101111111010000010100011110101110000101000111101011100",
                         "0100000111101111111111111111111111111111111000000110001001001110",
                         "1100000100011011100011001110110011110000001000001100010010011100",
-                        "0011110101010000100000000110000001011111000011101110100001011011"
+                        "0011110101010000100000000110000001011111000011101110100001011011",
                     });
                 yield return new TestCaseData(
                     new List<double>
@@ -243,7 +243,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "1111111111110000000000000000000000000000000000000000000000000000",
                         "1000000000000000000000000000000000000000000000000000000000000000",
                         "0000000000000000000000000000000000000000000000000000000000000001",
-                        "1111111111111000000000000000000000000000000000000000000000000000"
+                        "1111111111111000000000000000000000000000000000000000000000000000",
                     });
             }
         }
@@ -263,7 +263,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "i",
                         "I",
                         null,
-                        "To"
+                        "To",
                     }, new List<string>
                     {
                         null,
@@ -273,7 +273,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "I",
                         "To",
                         "Beg",
-                        "Life"
+                        "Life",
                     });
                 yield return new TestCaseData(
                     new StringByLengthComparer(),
@@ -284,7 +284,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "Longest",
                         "Short",
                         null,
-                        null
+                        null,
                     }, new List<string>
                     {
                         null,
@@ -292,7 +292,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         null,
                         "Short",
                         "Longer",
-                        "Longest"
+                        "Longest",
                     });
             }
         }
@@ -311,7 +311,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "i",
                         "I",
                         null,
-                        "To"
+                        "To",
                     }, new List<string>
                     {
                         null,
@@ -321,7 +321,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "I",
                         "To",
                         "Beg",
-                        "Life"
+                        "Life",
                     });
                 yield return new TestCaseData(
                     new List<string>
@@ -331,7 +331,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         "Longest",
                         "Short",
                         null,
-                        null
+                        null,
                     }, new List<string>
                     {
                         null,
@@ -339,7 +339,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         null,
                         "Short",
                         "Longer",
-                        "Longest"
+                        "Longest",
                     });
             }
         }
