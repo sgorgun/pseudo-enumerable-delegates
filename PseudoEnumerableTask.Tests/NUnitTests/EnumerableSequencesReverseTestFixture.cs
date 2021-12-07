@@ -70,8 +70,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void Reverse_Source_Is_Null_Throw_ArgumentNullException()
         {
-            IEnumerable<T> enumerable = null;
-            Assert.Throws<ArgumentNullException>(() => enumerable.Reverse(), $"Source can not be null.");
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<T>)null).Reverse(), $"Source can not be null.");
         }
     }
 }

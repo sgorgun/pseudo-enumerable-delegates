@@ -6,6 +6,7 @@ using Transformers;
 
 #pragma warning disable SA1600
 #pragma warning disable CA1707
+#pragma warning disable SA1118
 
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {
@@ -17,7 +18,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
             "1100000001101111111010000010100011110101110000101000111101011100",
             "0100000001101111111010000010100011110101110000101000111101011100",
             "0100000111101111111111111111111111111111111000000110001001001110",
-            "1100000100011011100011001110110011110000001000001100010010011100"
+            "1100000100011011100011001110110011110000001000001100010010011100",
         },
         0.2345E-12,
         "0011110101010000100000000110000001011111000011101110100001011011",
@@ -37,8 +38,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         private readonly TSource inSource;
         private readonly ITransformer<TSource, TResult> transformer;
 
-        public EnumerableSequencesTransformFixture(IEnumerable<TSource> source, IEnumerable<TResult> expected,
-            TSource inSource, TResult inResult)
+        public EnumerableSequencesTransformFixture(IEnumerable<TSource> source, IEnumerable<TResult> expected, TSource inSource, TResult inResult)
         {
             this.expected = new List<TResult>(expected);
             this.source = new List<TSource>(source);
@@ -51,8 +51,8 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(1)]
         public void Transform_With_Initial_Sequence()
         {
-            IEnumerable<TSource> enumerable = source;
-            var actual = enumerable.Transform(transformer);
+            IEnumerable<TSource> enumerable = this.source;
+            var actual = enumerable.Transform(this.transformer);
             CollectionAssert.AreEqual(actual, this.expected);
         }
 
@@ -84,8 +84,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void Transform_Source_Is_Null_Throw_ArgumentNullException()
         {
-            IEnumerable<TSource> enumerable = null;
-            Assert.Throws<ArgumentNullException>(() => enumerable.TypeOf<TSource>(), $"Source can not be null.");
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<TSource>)null).TypeOf<TSource>(), $"Source can not be null.");
         }
 
         private static ITransformer<TSource, TResult> TransformerCreator(Type typeSource, Type typeResult)

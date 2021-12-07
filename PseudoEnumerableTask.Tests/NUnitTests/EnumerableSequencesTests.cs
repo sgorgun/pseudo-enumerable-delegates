@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Comparers;
 using NUnit.Framework;
 using Predicates;
@@ -89,7 +90,8 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         {
             get
             {
-                yield return new TestCaseData(0,
+                yield return new TestCaseData(
+                    0,
                     new List<int> { 2212332, 1405644, -1236674 },
                     new List<int> { 1405644 });
                 yield return new TestCaseData(
@@ -103,7 +105,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         7243,
                         10017,
                         int.MinValue,
-                        int.MaxValue
+                        int.MaxValue,
                     },
                     new List<int>
                     {
@@ -114,7 +116,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         7243,
                         10017,
                         int.MinValue,
-                        int.MaxValue
+                        int.MaxValue,
                     });
                 yield return new TestCaseData(
                     0,
@@ -124,7 +126,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         int.MinValue,
                         int.MinValue,
                         int.MaxValue,
-                        int.MaxValue
+                        int.MaxValue,
                     },
                     new List<int> { });
                 yield return new TestCaseData(
@@ -143,14 +145,14 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                         9,
                         0,
                         -150,
-                        287
+                        287,
                     }, new List<int>
                     {
                         -123,
                         123,
                         2202,
                         5402,
-                        287
+                        287,
                     });
             }
         }
@@ -379,7 +381,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [TestCaseSource(nameof(FilterWithDelegateTestCases))]
         public void FilterByWithDelegateTests(int digit, IEnumerable<int> source, IEnumerable<int> excepted)
         {
-            CollectionAssert.AreEqual(excepted, source.Filter(x => x.ToString().Contains(digit.ToString())));
+            CollectionAssert.AreEqual(excepted, source.Filter(x => x.ToString().Contains(digit.ToString(CultureInfo.InvariantCulture), StringComparison.InvariantCulture)));
         }
 
         [TestCaseSource(nameof(TransformerTestCases))]

@@ -14,11 +14,11 @@ namespace Transformers
         /// <summary>
         /// Represents a method that converts an object from one type to another type.
         /// </summary>
-        /// <param name="number">The object to convert.</param>
+        /// <param name="obj">The object to convert.</param>
         /// <returns>
         /// The TResult that represents the converted TSource.
         /// </returns>
-        public string Transform(double number)
+        public string Transform(double obj)
         {
             throw new NotImplementedException();
         }
