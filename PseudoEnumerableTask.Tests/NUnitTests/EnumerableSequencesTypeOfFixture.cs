@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 #pragma warning disable SA1600
 #pragma warning disable CA1707
+#pragma warning disable CA1812
 
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {

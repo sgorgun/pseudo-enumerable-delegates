@@ -58,7 +58,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
             var (expected, count) = BufferData.ToArray(Enumerable.Repeat(12, 0));
 
             Assert.AreEqual(expected, Array.Empty<int>());
-            Assert.AreEqual(count, 0);
+            Assert.AreEqual(0, count);
         }
     }
 }
