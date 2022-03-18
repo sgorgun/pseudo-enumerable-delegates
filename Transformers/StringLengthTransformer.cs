@@ -16,7 +16,7 @@ namespace Transformers
         /// <returns>
         /// The TResult that represents the converted TSource.
         /// </returns>
-        public int Transform(string obj)
+        public int Transform(string? obj)
         {
             throw new NotImplementedException();
         }

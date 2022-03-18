@@ -4,10 +4,6 @@ using NUnit.Framework;
 using PseudoEnumerableTask.Interfaces;
 using Transformers;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-#pragma warning disable SA1118
-
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {
     [TestFixture(
@@ -44,7 +40,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
             this.source = new List<TSource>(source);
             this.inResult = inResult;
             this.inSource = inSource;
-            this.transformer = TransformerCreator(typeof(TSource), typeof(TResult));
+            this.transformer = TransformerCreator(typeof(TSource), typeof(TResult))!;
         }
 
         [Test]
@@ -84,10 +80,10 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void Transform_Source_Is_Null_Throw_ArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<TSource>)null).TypeOf<TSource>(), $"Source can not be null.");
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<TSource>)null!).TypeOf<TSource>(), $"Source can not be null.");
         }
 
-        private static ITransformer<TSource, TResult> TransformerCreator(Type typeSource, Type typeResult)
+        private static ITransformer<TSource, TResult>? TransformerCreator(Type typeSource, Type typeResult)
             => (typeSource, typeResult) switch
             {
                 _ when (typeSource, typeResult) == (typeof(double), typeof(string)) =>

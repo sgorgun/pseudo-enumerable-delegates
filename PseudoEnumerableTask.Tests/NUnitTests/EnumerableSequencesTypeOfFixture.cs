@@ -3,34 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-#pragma warning disable CA1812
-
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {
     [TestFixture(
-        new object[] { 12, 3, 4, true, "12", "2", 13.56, "6", null, 17.901, false },
+        new object[] { 12, 3, 4, true, "12", "2", 13.56, "6", null!, 17.901, false },
         new int[] { 12, 3, 4 },
         123,
         TypeArgs = new Type[] { typeof(int) })]
     [TestFixture(
-        new object[] { 12, null, 3, 4, true, "12", "2", 13.56, "6", 17.901, false },
+        new object[] { 12, null!, 3, 4, true, "12", "2", 13.56, "6", 17.901, false },
         new string[] { "12", "2", "6" },
         "hello",
         TypeArgs = new Type[] { typeof(string) })]
     [TestFixture(
-        new object[] { 12, -123.543, 3, null, 4, true, "12", "2", 13.56, "6", 17.901, false },
+        new object[] { 12, -123.543, 3, null!, 4, true, "12", "2", 13.56, "6", 17.901, false },
         new double[] { -123.543, 13.56, 17.901 },
         123.89,
         TypeArgs = new Type[] { typeof(double) })]
     [TestFixture(
-        new object[] { -123.543, 12, 3, 4, true, "12", "2", null, 13.56, "6", 17.901, false },
+        new object[] { -123.543, 12, 3, 4, true, "12", "2", null!, 13.56, "6", 17.901, false },
         new bool[] { true, false },
         true,
         TypeArgs = new Type[] { typeof(bool) })]
     [TestFixture(
-        new object[] { 's', -123.543, '\n', 12, 3, 4, true, "12", "2", null, 13.56, "6", 17.901, false },
+        new object[] { 's', -123.543, '\n', 12, 3, 4, true, "12", "2", null!, 13.56, "6", 17.901, false },
         new char[] { 's', '\n' },
         'A',
         TypeArgs = new Type[] { typeof(char) })]
@@ -83,7 +79,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void TypeOf_Source_Is_Null_Throw_ArgumentNullException()
         {
-            IEnumerable<T> enumerable = null;
+            IEnumerable<T> enumerable = null!;
             Assert.Throws<ArgumentNullException>(() => enumerable.TypeOf<T>(), $"Source can not be null.");
         }
     }

@@ -3,9 +3,6 @@ using NUnit.Framework;
 using Predicates;
 using PseudoEnumerableTask.Interfaces;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-
 namespace PseudoEnumerableTask.Tests.MoqTests
 {
     [TestFixture]
@@ -20,8 +17,8 @@ namespace PseudoEnumerableTask.Tests.MoqTests
             var mockPredicate = new Mock<IPredicate<int>>();
 
             mockPredicate
-                .Setup(p => p.Verify(It.Is<int>(i =>
-                    new ContainsDigitPredicate() { Digit = 5 }.Verify(i))))
+                .Setup(p => p.Verify(It.Is<int>(i => new ContainsDigitPredicate() { Digit = 5 }
+                .Verify(i))))
                 .Returns(true);
 
             IPredicate<int> predicate = mockPredicate.Object;

@@ -16,7 +16,8 @@ namespace PseudoEnumerableTask
         /// </summary>
         /// <param name="source">The enumerable sequence.</param>
         /// <typeparam name="T">Type of the elements of the sequence.</typeparam>
-        /// <returns>Single dimension zero based array.</returns>
+        /// <returns>Single dimension zero based array and count of elements of array.</returns>
+        /// <exception cref="ArgumentNullException">Throw when source is null.</exception>
         internal static (T[] buffer, int count) ToArray<T>(IEnumerable<T> source)
         {
             throw new NotImplementedException();

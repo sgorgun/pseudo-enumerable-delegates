@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using Comparers;
 using NUnit.Framework;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {
     [TestFixture(
@@ -27,7 +24,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         {
             this.expected = new List<T>(expected);
             this.source = new List<T>(source);
-            this.comparer = ComparerCreator(typeof(T));
+            this.comparer = ComparerCreator(typeof(T))!;
         }
 
         [Test]
@@ -39,10 +36,10 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(2)]
         public void SortBy_After_Add_New_Element_To_Source_Sequence_Actual_Result()
         {
-            this.expected.Insert(0, default);
+            this.expected.Insert(0, default!);
 
             var actual = this.source.SortBy(this.comparer);
-            this.source.Add(default);
+            this.source.Add(default!);
 
             CollectionAssert.AreEqual(this.expected, actual);
         }
@@ -63,10 +60,10 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         [Order(0)]
         public void SortBy_Source_Is_Null_Throw_ArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<T>)null).SortBy(this.comparer), $"Source can not be null.");
+            Assert.Throws<ArgumentNullException>(() => ((IEnumerable<T>)null!).SortBy(this.comparer), $"Source can not be null.");
         }
 
-        private static IComparer<T> ComparerCreator(Type type) => type switch
+        private static IComparer<T>? ComparerCreator(Type type) => type switch
         {
             _ when type == typeof(string) => (IComparer<T>)new StringByLengthComparer(),
             _ when type == typeof(int) => (IComparer<T>)new IntegerByAbsComparer(),

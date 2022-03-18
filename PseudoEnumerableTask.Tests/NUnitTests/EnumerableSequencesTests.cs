@@ -7,9 +7,6 @@ using Predicates;
 using PseudoEnumerableTask.Interfaces;
 using Transformers;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-
 namespace PseudoEnumerableTask.Tests.NUnitTests
 {
     [TestFixture]
@@ -258,17 +255,17 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     new List<string>
                     {
                         "Beg",
-                        null,
+                        null!,
                         "Life",
                         "I",
                         "i",
                         "I",
-                        null,
+                        null!,
                         "To",
                     }, new List<string>
                     {
-                        null,
-                        null,
+                        null!,
+                        null!,
                         "I",
                         "i",
                         "I",
@@ -280,17 +277,17 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     new StringByLengthComparer(),
                     new List<string>
                     {
-                        null,
+                        null!,
                         "Longer",
                         "Longest",
                         "Short",
-                        null,
-                        null,
+                        null!,
+                        null!,
                     }, new List<string>
                     {
-                        null,
-                        null,
-                        null,
+                        null!,
+                        null!,
+                        null!,
                         "Short",
                         "Longer",
                         "Longest",
@@ -306,17 +303,17 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     new List<string>
                     {
                         "Beg",
-                        null,
+                        null!,
                         "Life",
                         "I",
                         "i",
                         "I",
-                        null,
+                        null!,
                         "To",
                     }, new List<string>
                     {
-                        null,
-                        null,
+                        null!,
+                        null!,
                         "I",
                         "i",
                         "I",
@@ -327,17 +324,17 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                 yield return new TestCaseData(
                     new List<string>
                     {
-                        null,
+                        null!,
                         "Longer",
                         "Longest",
                         "Short",
-                        null,
-                        null,
+                        null!,
+                        null!,
                     }, new List<string>
                     {
-                        null,
-                        null,
-                        null,
+                        null!,
+                        null!,
+                        null!,
                         "Short",
                         "Longer",
                         "Longest",
@@ -384,10 +381,10 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
         }
 
         [TestCaseSource(nameof(TransformerTestCases))]
-        public void Transformer_WithActualElements_Tests(ITransformer<double, string> transformer, List<double> source, List<string> excepted)
+        public void Transformer_WithActualElements_Tests(ITransformer<double, string> transformer, List<double>? source, List<string> excepted)
         {
             source?.RemoveAt(2);
-            var actual = source.Transform(transformer);
+            var actual = source?.Transform(transformer);
             excepted?.RemoveAt(2);
             CollectionAssert.AreEqual(excepted, actual);
         }

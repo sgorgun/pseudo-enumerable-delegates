@@ -3,8 +3,6 @@ using NUnit.Framework;
 using PseudoEnumerableTask.Interfaces;
 using Transformers;
 
-#pragma warning disable SA1600
-
 namespace PseudoEnumerableTask.Tests.MoqTests
 {
     [TestFixture]

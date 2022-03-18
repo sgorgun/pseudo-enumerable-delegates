@@ -19,12 +19,12 @@ namespace Comparers
         /// Value
         /// Meaning
         /// Less than zero
-        /// <paramref name="x" /> is less than <paramref name="y" />.
+        /// <paramref name="x"/> is less than <paramref name="y"/>.
         /// Zero
-        /// <paramref name="x" /> equals <paramref name="y" />.
+        /// <paramref name="x"/> equals <paramref name="y"/>.
         /// Greater than zero
-        /// <paramref name="x" /> is greater than <paramref name="y" />.
+        /// <paramref name="x"/> is greater than <paramref name="y" />.
         /// </returns>
-        public int Compare(int x, int y)  => throw new NotImplementedException();
+        public int Compare(int x, int y) => throw new NotImplementedException();
     }
 }
