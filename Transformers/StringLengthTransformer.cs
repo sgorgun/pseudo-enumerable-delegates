@@ -18,7 +18,7 @@ namespace Transformers
         /// </returns>
         public int Transform(string? obj)
         {
-            throw new NotImplementedException();
+            return obj?.Length ?? -1;
         }
     }
 }

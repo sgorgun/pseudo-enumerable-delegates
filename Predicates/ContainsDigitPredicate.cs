@@ -8,6 +8,8 @@ namespace Predicates
     /// </summary>
     public class ContainsDigitPredicate : IPredicate<int>
     {
+        private int digit;
+
         /// <summary>
         /// Gets or sets the digit.
         /// </summary>
@@ -17,8 +19,8 @@ namespace Predicates
         /// <exception cref="System.ArgumentOutOfRangeException">value - Digit value is out of range (0..9).</exception>
         public int Digit
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            get => this.digit;
+            set => this.digit = (value is < 0 or > 9) ? throw new ArgumentOutOfRangeException(nameof(value), "Сan not be less than zero or more then 9.") : value;
         }
 
         /// <summary>
@@ -30,7 +32,19 @@ namespace Predicates
         /// </returns>
         public bool Verify(int obj)
         {
-            throw new NotImplementedException();
+            uint newObj = obj < 0 ? (uint)-obj : (uint)obj;
+
+            while (newObj != 0)
+            {
+                if (newObj % 10 == this.digit)
+                {
+                    return true;
+                }
+
+                newObj /= 10;
+            }
+
+            return false;
         }
     }
 }
