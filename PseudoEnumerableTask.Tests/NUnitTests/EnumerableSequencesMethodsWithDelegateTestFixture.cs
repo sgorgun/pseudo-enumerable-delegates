@@ -47,7 +47,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
             new[] { 12, 56, 567, 234, 1234, })]
         public void FilterTests(int[] source, int[] expected) =>
             Assert.AreEqual(expected, source.Filter(x => x > 0));
-        
+
         [TestCaseSource(nameof(FilterTestCases))]
         public void FilterTests(string[] source, string[] expected, Predicate<string> predicate) =>
             CollectionAssert.AreEqual(expected, source.Filter(predicate));

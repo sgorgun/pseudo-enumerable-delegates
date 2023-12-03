@@ -200,7 +200,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     });
             }
         }
-        
+
         private static IEnumerable<TestCaseData> TransformerWithDelegateTestCases
         {
             get
@@ -294,7 +294,7 @@ namespace PseudoEnumerableTask.Tests.NUnitTests
                     });
             }
         }
-        
+
         private static IEnumerable<TestCaseData> SortByWithDelegateTestCases
         {
             get
